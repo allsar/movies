@@ -54,3 +54,26 @@ create table user(
                      email varchar(30),
                      password varchar(30)
 );
+
+create table Serials(
+    id int auto_increment primary key ,
+    movie_id int,
+    status boolean,
+    title nvarchar(30)
+);
+
+alter table serials
+add foreign key (movie_id) references movie(id);
+
+create table Comments(
+    id int primary key auto_increment,
+    media_id int,
+    media_type boolean,
+    user_id int,
+    reply_id int,
+    likes int,
+    dislike int,
+    text text,
+    created_at date,
+    foreign key (user_id) references user(id)
+);
