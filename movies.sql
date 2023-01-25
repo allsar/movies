@@ -17,7 +17,7 @@ create table category(
                          name varchar(30)
 );
 alter table movie
-    add foreign key (category_id) references category(id);
+    add foreign key (category_id) references categories(id);
 
 create table genre(
                       id int primary key auto_increment,
@@ -77,3 +77,4 @@ create table Comments(
     created_at date,
     foreign key (user_id) references user(id)
 );
+insert into categories(name) VALUES ('comedy');
