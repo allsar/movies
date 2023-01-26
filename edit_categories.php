@@ -27,7 +27,7 @@ $categories = $db->query(query: "select id, name from categories where id=$id")-
             <div class="card-header">
                 <h1>Edit</h1>
             </div>
-            <form action="edit.php" method="post" enctype="multipart/form-data">
+            <form action="edit_categories.php" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="id" value="<?= $categories['id'] ?>">
                 <input type="hidden" name="edit" value="1">
                 <div class="card-body">
