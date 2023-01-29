@@ -12,7 +12,7 @@ create table movie(
                       description longtext
 );
 
-create table category(
+create table categories(
                          id int primary key auto_increment,
                          name varchar(30)
 );
