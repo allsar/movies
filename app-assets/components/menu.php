@@ -60,6 +60,12 @@
                     <span class="menu-title text-truncate" data-i18n="categories">Categories</span>
                 </a>
             </li>
+            <li class=" nav-item">
+                <a class="d-flex align-items-center" href="../../genre.php">
+                    <i data-feather="square"></i>
+                    <span class="menu-title text-truncate" data-i18n="categories">Genre</span>
+                </a>
+            </li>
 
         </ul>
     </div>

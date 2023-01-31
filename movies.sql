@@ -24,7 +24,7 @@ create table genre(
                       name varchar(30)
 );
 alter table movie
-    add foreign key (genre_id) references genre(id);
+    add foreign key (genre_id) references genres(id);
 
 create table quality(
                         id int primary key auto_increment,
@@ -78,3 +78,24 @@ create table Comments(
     foreign key (user_id) references user(id)
 );
 insert into categories(name) VALUES ('comedy');
+
+alter table serials
+add column image nvarchar(30);
+
+
+alter table movie
+    add column image nvarchar(30);
+
+create table serial_images(
+    id int primary key auto_increment,
+    image nvarchar(30),
+    serial_id int,
+    foreign key (serial_id) references serials(id)
+);
+
+create table movie_images(
+                              id int primary key auto_increment,
+                              image nvarchar(30),
+                              movie_id int,
+                              foreign key (movie_id) references movie(id)
+);
