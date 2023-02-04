@@ -1,4 +1,10 @@
 <?php
+include_once './php/DB.php';
+
+$DBclass = new DB();
+$db = $DBclass->getDB();
+$genres = $db->query('select * from genres')->fetch_all(MYSQLI_ASSOC);
+
 ?>
 <!DOCTYPE html>
 <html class="loading dark-layout" lang="en" data-layout="dark-layout" data-textdirection="ltr">
@@ -8,16 +14,21 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimal-ui">
-    <meta name="description" content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
-    <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
+    <meta name="description"
+          content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
+    <meta name="keywords"
+          content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="PIXINVENT">
     <title>Dashboard ecommerce - Vuexy - Bootstrap HTML admin template</title>
     <link rel="apple-touch-icon" href="./app-assets/images/ico/apple-icon-120.png">
     <link rel="shortcut icon" type="image/x-icon" href="./app-assets/images/ico/favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600"
+          rel="stylesheet">
 
     <!-- BEGIN: Vendor CSS-->
     <link rel="stylesheet" type="text/css" href="./app-assets/vendors/css/vendors.min.css">
+    <link rel="stylesheet" type="text/css" href="./app-assets/vendors/css/forms/select/select2.min.css">
+
     <!-- END: Vendor CSS-->
 
     <!-- BEGIN: Theme CSS-->
@@ -42,7 +53,8 @@
 
 <!-- BEGIN: Body-->
 
-<body class="vertical-layout vertical-menu-modern  navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="">
+<body class="vertical-layout vertical-menu-modern  navbar-floating footer-static  " data-open="click"
+      data-menu="vertical-menu-modern" data-col="">
 
 <!-- BEGIN: Header-->
 <?php include_once './app-assets/components/navbar.php'; ?>
@@ -79,8 +91,25 @@
                                                     <label class="col-form-label" for="first-name">Category Name</label>
                                                 </div>
                                                 <div class="col-sm-9">
-                                                    <input type="text" id="first-name" class="form-control" name="name" placeholder="Category Name" />
+                                                    <input type="text" id="first-name" class="form-control" name="name"
+                                                           placeholder="Category Name"/>
                                                 </div>
+
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="mb-1 row">
+                                            <div class="col-sm-3">
+                                                <label class="col-form-label" for="select2-multiple">Multiple</label>
+                                            </div>
+
+                                            <div class="col-sm-9">
+                                                <select class="select2 form-select" id="select2-multiple" name="genre_ids"  >
+                                                    <?php foreach ($genres as $genre) { ?>
+                                                        <option value="<?= $genre['id']?>"><?= $genre['name']?></option>
+
+                                                    <?php }?>
+                                                </select>
+                                            </div>
                                             </div>
                                         </div>
 
@@ -117,7 +146,7 @@
 <!-- BEGIN Vendor JS-->
 
 <!-- BEGIN: Page Vendor JS-->
-
+<script src="./app-assets/vendors/js/forms/select/select2.full.min.js"></script>
 <!-- END: Page Vendor JS-->
 
 <!-- BEGIN: Theme JS-->
@@ -126,10 +155,12 @@
 <!-- END: Theme JS-->
 
 <!-- BEGIN: Page JS-->
+<script src="./app-assets/js/scripts/forms/form-select2.js"></script>
+
 <!-- END: Page JS-->
 
 <script>
-    $(window).on('load', function() {
+    $(window).on('load', function () {
         if (feather) {
             feather.replace({
                 width: 14,
