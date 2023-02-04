@@ -63,7 +63,13 @@
             <li class=" nav-item">
                 <a class="d-flex align-items-center" href="../../genre.php">
                     <i data-feather="square"></i>
-                    <span class="menu-title text-truncate" data-i18n="categories">Genre</span>
+                    <span class="menu-title text-truncate" data-i18n="genre">Genre</span>
+                </a>
+            </li>
+            <li class=" nav-item">
+                <a class="d-flex align-items-center" href="../../country.php">
+                    <i data-feather="flag"></i>
+                    <span class="menu-title text-truncate" data-i18n="country">Country</span>
                 </a>
             </li>
 

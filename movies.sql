@@ -99,3 +99,6 @@ create table movie_images(
                               movie_id int,
                               foreign key (movie_id) references movie(id)
 );
+
+alter table country
+rename country
