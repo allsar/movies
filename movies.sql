@@ -18,7 +18,7 @@ create table categories
     id   int primary key auto_increment,
     name varchar(30)
 );
-alter table movie
+alter table movies
     add foreign key (category_id) references categories (id);
 
 create table genre
@@ -26,7 +26,7 @@ create table genre
     id   int primary key auto_increment,
     name varchar(30)
 );
-alter table movie
+alter table movies
     add foreign key (genre_id) references genres (id);
 
 create table quality
@@ -35,7 +35,7 @@ create table quality
     name varchar(30) /* yoki type db ketish keremi?*/
 );
 
-alter table movie
+alter table movies
     add column country_id int;
 
 create table country
@@ -44,8 +44,8 @@ create table country
     name varchar(30)
 );
 
-alter table movie
-    add foreign key (country_id) references country (id);
+alter table movies
+    add foreign key (country_id) references countries (id);
 
 create table plan
 (
@@ -71,7 +71,7 @@ create table Serials
 );
 
 alter table serials
-    add foreign key (movie_id) references movie (id);
+    add foreign key (movie_id) references movies (id);
 
 create table Comments
 (
@@ -93,7 +93,7 @@ alter table serials
     add column image nvarchar(30);
 
 
-alter table movie
+alter table movies
     add column image nvarchar(30);
 
 create table serial_images
@@ -109,10 +109,10 @@ create table movie_images
     id       int primary key auto_increment,
     image    nvarchar(30),
     movie_id int,
-    foreign key (movie_id) references movie (id)
+    foreign key (movie_id) references movies (id)
 );
 
-alter table country
+alter table countries
     rename country;
 alter table serials
     drop foreign key serials_ibfk_1;
@@ -120,7 +120,7 @@ alter table serials
 alter table serials
     drop column movie_id;
 
-alter table movie
+alter table movies
     add serial_id int null;
 
 

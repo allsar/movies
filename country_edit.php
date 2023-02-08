@@ -4,7 +4,7 @@ $db = new DB();
 $conn = $db->getDB();
 if (isset($_GET['id']) && !empty($_GET['id'])) {
     $id = $_GET['id'];
-    $country = $conn->query("select * from country where id = $id")->fetch_assoc();
+    $countries = $conn->query("select * from countries where id = $id")->fetch_assoc();
 }
 
 ?>
@@ -90,11 +90,11 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                                                 <div class="col-sm-3">
                                                     <label class="col-form-label" for="first-name">Country Name</label>
                                                 </div>
-                                                <input type="hidden" name="id" value="<?= $country['id'] ?>">
+                                                <input type="hidden" name="id" value="<?= $countries['id'] ?>">
                                                 <div class="col-sm-9">
                                                     <input type="text" id="first-name" class="form-control" name="name"
                                                            placeholder="Country Name"
-                                                           value="<?= $country['name'] ?>"/>
+                                                           value="<?= $countries['name'] ?>"/>
                                                 </div>
                                             </div>
                                         </div>

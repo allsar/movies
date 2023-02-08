@@ -67,9 +67,15 @@
                 </a>
             </li>
             <li class=" nav-item">
-                <a class="d-flex align-items-center" href="../../country.php">
+                <a class="d-flex align-items-center" href="../../countries.php">
                     <i data-feather="flag"></i>
                     <span class="menu-title text-truncate" data-i18n="country">Country</span>
+                </a>
+            </li>
+            <li class=" nav-item">
+                <a class="d-flex align-items-center" href="../../movies.php">
+                    <i data-feather="play"></i>
+                    <span class="menu-title text-truncate" data-i18n="Movies">Movies</span>
                 </a>
             </li>
 

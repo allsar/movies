@@ -1,9 +1,8 @@
 <?php
 include_once './php/DB.php';
-
 $DBclass = new DB();
 $db = $DBclass->getDB();
-$categories = $db->query('select * from categories')->fetch_all(MYSQLI_ASSOC);
+$country = $db->query('select * from countries')->fetch_all(MYSQLI_ASSOC);
 
 ?>
 <!DOCTYPE html>
@@ -27,8 +26,6 @@ $categories = $db->query('select * from categories')->fetch_all(MYSQLI_ASSOC);
 
     <!-- BEGIN: Vendor CSS-->
     <link rel="stylesheet" type="text/css" href="./app-assets/vendors/css/vendors.min.css">
-    <link rel="stylesheet" type="text/css" href="./app-assets/vendors/css/forms/select/select2.min.css">
-
     <!-- END: Vendor CSS-->
 
     <!-- BEGIN: Theme CSS-->
@@ -73,58 +70,71 @@ $categories = $db->query('select * from categories')->fetch_all(MYSQLI_ASSOC);
     <div class="header-navbar-shadow"></div>
     <div class="content-wrapper container-xxxl p-0">
         <div class="content-header row">
-        </div>
-        <div class="content-body">
-            <section id="basic-horizontal-layouts">
-                <div class="row">
-                    <div class=" col-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4 class="card-title">Category Form</h4>
-                            </div>
-                            <div class="card-body">
-                                <form class="form form-horizontal" action="./php/categories/create.php" method="post">
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="mb-1 row">
-                                                <div class="col-sm-3">
-                                                    <label class="col-form-label" for="first-name">Category Name</label>
-                                                </div>
-                                                <div class="col-sm-9">
-                                                    <input type="text" id="first-name" class="form-control" name="name"
-                                                           placeholder="Category Name"/>
-                                                </div>
-
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="mb-1 row">
-                                            <div class="col-sm-3">
-                                                <label class="col-form-label" for="select2-multiple">Multiple</label>
-                                            </div>
-
-                                            <div class="col-sm-9">
-                                                <select class="select2 form-select" id="select2-multiple" name="category_ids"  >
-                                                    <?php foreach ($categories as $category) { ?>
-                                                        <option value="<?= $category['id']?>"><?= $category['name']?></option>
-
-                                                    <?php }?>
-                                                </select>
-                                            </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-12 text-end">
-                                            <button type="submit" class="btn btn-primary me-1">Submit</button>
-                                            <button type="reset" class="btn btn-outline-secondary">Reset</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
+            <div class="content-header-left col-md-9 col-12 mb-2">
+                <div class="row breadcrumbs-top">
+                    <div class="col-12">
+                        <h2 class="content-header-title float-start mb-0">Country</h2>
+                        <div class="breadcrumb-wrapper">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">Home</a>
+                                </li>
+                                <li class="breadcrumb-item active">Country
+                                </li>
+                            </ol>
                         </div>
                     </div>
-
                 </div>
-            </section>
+            </div>
+            <div class="content-header-right text-md-end col-md-3 col-12 d-md-block d-none">
+                <a href="country_create.php" class="btn btn-primary"> Create</a>
+            </div>
+        </div>
+        <div class="content-body">
+            <div class="row" id="basic-table">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Data</h4>
+                        </div>
+                        <div class="card-body">
+
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php foreach ($country as $country) { ?>
+                                    <tr>
+                                        <td>
+                                            <?= $country['id'] ?>
+                                        </td>
+                                        <td>
+                                            <?= $country['name'] ?>
+                                        </td>
+
+                                        <td>
+                                            <a href="./country_edit.php?id=<?= $country['id'] ?>" class="btn btn-sm btn-secondary">Edit</a>
+                                            <form action="./php/country/delete.php" method="post" class="d-inline-block">
+                                                <input type="hidden" name="id" value="<?= $country['id'] ?>">
+                                                <button class="btn btn-sm btn-danger" type="submit">
+                                                    Delete
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                <?php } ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </div>
     </div>
@@ -135,7 +145,7 @@ $categories = $db->query('select * from categories')->fetch_all(MYSQLI_ASSOC);
 <div class="drag-target"></div>
 
 <!-- BEGIN: Footer-->
-<?php include_once './app-assets/components/menu.php'; ?>
+<?php include_once './app-assets/components/footer.php'; ?>
 
 <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button>
 <!-- END: Footer-->
@@ -146,7 +156,7 @@ $categories = $db->query('select * from categories')->fetch_all(MYSQLI_ASSOC);
 <!-- BEGIN Vendor JS-->
 
 <!-- BEGIN: Page Vendor JS-->
-<script src="./app-assets/vendors/js/forms/select/select2.full.min.js"></script>
+
 <!-- END: Page Vendor JS-->
 
 <!-- BEGIN: Theme JS-->
@@ -155,8 +165,6 @@ $categories = $db->query('select * from categories')->fetch_all(MYSQLI_ASSOC);
 <!-- END: Theme JS-->
 
 <!-- BEGIN: Page JS-->
-<script src="./app-assets/js/scripts/forms/form-select2.js"></script>
-
 <!-- END: Page JS-->
 
 <script>
@@ -173,3 +181,5 @@ $categories = $db->query('select * from categories')->fetch_all(MYSQLI_ASSOC);
 <!-- END: Body-->
 
 </html>
+
+

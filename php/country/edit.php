@@ -7,11 +7,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $id = $_POST['id'];
         if (isset($_POST['name']) && $_POST['name']) {
             $name = $_POST['name'];
-            $conn->query("update country set name = '$name' where id = '$id'");
+            $conn->query("update countries set name = '$name' where id = '$id'");
             if ($conn->error) {
                 echo $conn->error;
             } else {
-                header('Location: /country.php');
+                header('Location: /countries.php');
             }
         }
     }

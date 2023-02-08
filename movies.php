@@ -2,8 +2,7 @@
 include_once './php/DB.php';
 $DBclass = new DB();
 $db = $DBclass->getDB();
-$country = $db->query('select * from country')->fetch_all(MYSQLI_ASSOC);
-
+$movies = $db->query('select * from movies')->fetch_all(MYSQLI_ASSOC);
 ?>
 <!DOCTYPE html>
 <html class="loading dark-layout" lang="en" data-layout="dark-layout" data-textdirection="ltr">
@@ -73,12 +72,12 @@ $country = $db->query('select * from country')->fetch_all(MYSQLI_ASSOC);
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-start mb-0">Country</h2>
+                        <h2 class="content-header-title float-start mb-0">Movies</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="index.html">Home</a>
                                 </li>
-                                <li class="breadcrumb-item active">Country
+                                <li class="breadcrumb-item active">Movies
                                 </li>
                             </ol>
                         </div>
@@ -86,7 +85,7 @@ $country = $db->query('select * from country')->fetch_all(MYSQLI_ASSOC);
                 </div>
             </div>
             <div class="content-header-right text-md-end col-md-3 col-12 d-md-block d-none">
-                <a href="country_create.php" class="btn btn-primary"> Create</a>
+                <a href="movies_create.php" class="btn btn-primary"> Create</a>
             </div>
         </div>
         <div class="content-body">
@@ -104,24 +103,64 @@ $country = $db->query('select * from country')->fetch_all(MYSQLI_ASSOC);
                                 <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Name</th>
+                                    <th>Title</th>
+                                    <th>Description</th>
+                                    <th>Realise date</th>
+                                    <th>Rate</th>
+                                    <th>Age</th>
+                                    <th>Quality</th>
+                                    <th>Run time</th>
+                                    <th>Image</th>
+                                    <th>Category</th>
+                                    <th>Country</th>
+                                    <th>Genre</th>
                                     <th>Actions</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <?php foreach ($country as $country) { ?>
+                                <?php foreach ($movies as $movie) { ?>
                                     <tr>
                                         <td>
-                                            <?= $country['id'] ?>
+                                            <?= $movie['id'] ?>
                                         </td>
                                         <td>
-                                            <?= $country['name'] ?>
+                                            <?= $movie['title'] ?>
+                                        </td>
+                                        <td>
+                                            <?= $movie['description'] ?>
+                                        </td>
+                                        <td>
+                                            <?= $movie['realise_date'] ?>
+                                        </td>
+                                        <td>
+                                            <?= $movie['rate'] ?>
+                                        </td>
+                                        <td>
+                                            <?= $movie['age'] ?>
+                                        </td>
+                                        <td>
+                                            <?= $movie['quality_id'] ?>
+                                        </td>
+                                        <td>
+                                            <?= $movie['run_time'] ?>
+                                        </td>
+                                        <td>
+                                            <?= $movie['image'] ?>
+                                        </td>
+                                        <td>
+                                            <?= $movie['category_id'] ?>
+                                        </td>
+                                        <td>
+                                            <?= $movie['country_id'] ?>
+                                        </td>
+                                        <td>
+                                            <?= $movie['genre_id'] ?>
                                         </td>
 
                                         <td>
-                                            <a href="./country_edit.php?id=<?= $country['id'] ?>" class="btn btn-sm btn-secondary">Edit</a>
-                                            <form action="./php/country/delete.php" method="post" class="d-inline-block">
-                                                <input type="hidden" name="id" value="<?= $country['id'] ?>">
+                                            <a href="./php/movies/edit.php?id=<?= $movie['id'] ?>" class="btn btn-sm btn-secondary">Edit</a>
+                                            <form action="./php/movies/delete.php" method="post" class="d-inline-block">
+                                                <input type="hidden" name="id" value="<?= $movie['id'] ?>">
                                                 <button class="btn btn-sm btn-danger" type="submit">
                                                     Delete
                                                 </button>
@@ -181,5 +220,3 @@ $country = $db->query('select * from country')->fetch_all(MYSQLI_ASSOC);
 <!-- END: Body-->
 
 </html>
-
-
