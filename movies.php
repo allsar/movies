@@ -158,7 +158,7 @@ $movies = $db->query('select * from movies')->fetch_all(MYSQLI_ASSOC);
                                         </td>
 
                                         <td>
-                                            <a href="./php/movies/edit.php?id=<?= $movie['id'] ?>" class="btn btn-sm btn-secondary">Edit</a>
+                                            <a href="./movies_edit.php?id=<?= $movie['id'] ?>" class="btn btn-sm btn-secondary">Edit</a>
                                             <form action="./php/movies/delete.php" method="post" class="d-inline-block">
                                                 <input type="hidden" name="id" value="<?= $movie['id'] ?>">
                                                 <button class="btn btn-sm btn-danger" type="submit">

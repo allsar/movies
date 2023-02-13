@@ -106,7 +106,7 @@ $genres = $db->query('select * from genres')->fetch_all(MYSQLI_ASSOC);
                                                     <label class="col-form-label" for="title">Title</label>
                                                 </div>
                                                 <div class="col-sm-10">
-                                                    <input type="text" id="title" class="form-control" name="Title" placeholder="Title" />
+                                                    <input type="text" id="title" class="form-control" name="title" placeholder="Title" />
                                                 </div>
                                             </div>
                                         </div>
@@ -116,7 +116,7 @@ $genres = $db->query('select * from genres')->fetch_all(MYSQLI_ASSOC);
                                                     <label class="col-form-label" for="description">Description</label>
                                                 </div>
                                                 <div class="col-sm-10">
-                                                    <input type="text" id="description" class="form-control" name="Description" placeholder="Description" />
+                                                    <input type="text" id="description" class="form-control" name="description" placeholder="Description" />
                                                 </div>
                                             </div>
                                         </div>
@@ -126,7 +126,7 @@ $genres = $db->query('select * from genres')->fetch_all(MYSQLI_ASSOC);
                                                     <label class="col-form-label" for="realise_date">Realise_date</label>
                                                 </div>
                                                 <div class="col-sm-10">
-                                                    <input type="date" id="realise_date" class="form-control" name="Realise_date" placeholder="Realise-date" />
+                                                    <input type="date" id="realise_date" class="form-control" name="realise_date" placeholder="Realise-date" />
                                                 </div>
                                             </div>
                                         </div>
