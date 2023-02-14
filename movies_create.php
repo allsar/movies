@@ -153,10 +153,10 @@ $genres = $db->query('select * from genres')->fetch_all(MYSQLI_ASSOC);
                                         <div class="col-12">
                                             <div class="mb-1 row">
                                                 <div class="col-sm-2">
-                                                    <label class="col-form-label" for="quality_id">Quality</label>
+                                                    <label class="col-form-label" for="quality">Quality</label>
                                                 </div>
                                                 <div class="col-sm-10">
-                                                    <input type="text" id="quality_id" class="form-control" name="quality" placeholder="Quality" />
+                                                    <input type="text" id="quality" class="form-control" name="quality" placeholder="Quality" />
                                                 </div>
                                             </div>
                                         </div>

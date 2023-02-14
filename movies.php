@@ -139,7 +139,7 @@ $movies = $db->query('select * from movies')->fetch_all(MYSQLI_ASSOC);
                                             <?= $movie['age'] ?>
                                         </td>
                                         <td>
-                                            <?= $movie['quality_id'] ?>
+                                            <?= $movie['quality'] ?>
                                         </td>
                                         <td>
                                             <?= $movie['run_time'] ?>
