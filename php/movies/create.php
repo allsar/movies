@@ -14,7 +14,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                     if (isset($_POST['category_id']) && $_POST['category_id']) {
                                         if (isset($_POST['country_id']) && $_POST['country_id']) {
                                             if (isset($_POST['genre_id']) && $_POST['genre_id']) {
-                                                $conn->query("insert into movies (title, category_id, genre_id, realise_date, rate, quality, age, run_time, description, country_id, image) values ('$_POST[title]'),('$_POST[description]'),('$_POST[rate]'),('$_POST[realise_date]'),('$_POST[age]'),('$_POST[quality]'),('$_POST[run_time]'),('$_POST[image]'),('$_POST[category_id]'),('$_POST[country_id]'),('$_POST[genre_id]'),");
+                                                $conn->query("insert into movies (title, category_id, genre_id, realise_date, rate, quality, age, run_time, description, country_id, image) values ('$_POST[title]','$_POST[category_id]','$_POST[genre_id]','$_POST[realise_date]','$_POST[rate]','$_POST[quality]','$_POST[age]','$_POST[run_time]','$_POST[description]','$_POST[country_id]','$_POST[image]')");
+
                                                 if ($conn->error) {
                                                         echo $conn->error;
                                                 } else {
