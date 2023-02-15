@@ -187,7 +187,7 @@ $genres = $db->query('select * from genres')->fetch_all(MYSQLI_ASSOC);
                                                 </div>
 
                                                 <div class="col-sm-10">
-                                                    <select class="select2 form-select" id="select2-multiple" name="category_ids"  >
+                                                    <select class="select2 form-select" id="select2-multiple" name="category_id"  >
                                                         <?php foreach ($categories as $category) { ?>
                                                             <option value="<?= $category['id']?>"><?= $category['name']?></option>
 
@@ -203,7 +203,7 @@ $genres = $db->query('select * from genres')->fetch_all(MYSQLI_ASSOC);
                                                 </div>
 
                                                 <div class="col-sm-10">
-                                                    <select class="select2 form-select" id="select2-multiple" name="country_ids"  >
+                                                    <select class="select2 form-select" id="select2-multiple" name="country_id"  >
                                                         <?php foreach ($countries as $country) { ?>
                                                             <option value="<?= $country['id']?>"><?= $country['name']?></option>
 
@@ -219,7 +219,7 @@ $genres = $db->query('select * from genres')->fetch_all(MYSQLI_ASSOC);
                                                 </div>
 
                                                 <div class="col-sm-10">
-                                                    <select class="select2 form-select" id="select2-multiple" name="genre_ids"  >
+                                                    <select class="select2 form-select" id="select2-multiple" name="genre_id"  >
                                                         <?php foreach ($genres as $genre) { ?>
                                                             <option value="<?= $genre['id']?>"><?= $genre['name']?></option>
 
