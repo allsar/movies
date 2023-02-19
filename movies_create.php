@@ -98,7 +98,7 @@ $genres = $db->query('select * from genres')->fetch_all(MYSQLI_ASSOC);
                                 <h4 class="card-title">Movies</h4>
                             </div>
                             <div class="card-body">
-                                <form class="form form-horizontal" action="./php/movies/create.php" method="post">
+                                <form class="form form-horizontal" action="./php/movies/create.php" method="post" enctype="multipart/form-data"> <!--RASM KELISHI UCHUN DALBAYOB ENCTYPE KERE-->
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="mb-1 row">

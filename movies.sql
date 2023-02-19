@@ -123,4 +123,6 @@ alter table serials
 alter table movies
     add serial_id int null;
 
+alter table movies
+    modify run_time int null;
 
