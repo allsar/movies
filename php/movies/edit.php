@@ -15,8 +15,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         $rate = $_POST['rate'];
                         if (isset($_POST['age']) && $_POST['age']){
                             $age = $_POST['age'];
-                            if (isset($_POST['quality_id']) && $_POST['quality_id']){
-                                $quality_id = $_POST['quality_id'];
+                            if (isset($_POST['quality']) && $_POST['quality']){
+                                $quality = $_POST['quality'];
                                 if (isset($_POST['run_time']) && $_POST['run_time']){
                                     $run_time= $_POST['run_time'];
                                     if (isset($_POST['image']) && $_POST['image']){
@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                 $country_id = $_POST['country_id'];
                                                 if (isset($_POST['genre_id']) && $_POST['genre_id']) {
                                                     $genre_id = $_POST['genre_id'];
-                                                    $conn->query("update movies set title='$title', description='$description', realise_date='$realise_date', rate='$rate', age='$age', quality_id='$quality_id', run_time='$run_time', image='$image', category_id='$category_id', country_id='$country_id', genre_id='$genre_id' where id='$id'");
+                                                    $conn->query("update movies set title='$title', description='$description', realise_date='$realise_date', rate='$rate', age='$age', quality='$quality', run_time='$run_time', image='$image', category_id='$category_id', country_id='$country_id', genre_id='$genre_id' where id='$id'");
                                                     if ($conn->error){
                                                         echo $conn->error;
                                                     } else{

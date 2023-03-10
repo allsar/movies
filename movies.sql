@@ -125,4 +125,6 @@ alter table movies
 
 alter table movies
     modify run_time int null;
+alter table movies
+    modify realise_date date null;
 
