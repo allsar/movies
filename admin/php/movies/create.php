@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($_FILES['image']['error'] == 0) {
         $image = $_FILES['image'];
         $image_tmp_name = $image['tmp_name'];
-        $image_path = '../../app-assets/images/movies/' . $imageNewName;
+        $image_path = '../../../img/movies/' . $imageNewName;
         move_uploaded_file($image_tmp_name, $image_path);
 
     }
